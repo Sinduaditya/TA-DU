@@ -20,6 +20,10 @@ Rule :
 2. Gunakan Branch lain setiap mau melakukan perubahan
 3. Pull terlebih dahulu setiap perubahan
 4. Selalu Komunikasikan Apapun Terkait Project
+5. selalu buat branch dengan rule
+   - frontend-namamu/nama_fitur ( cth : frontend-sindu/navbar )
+   - backend-namamu/nama_fitur ( sama dgn frontend )
+6. Ikuti Rules agar tidak ada conflic
 
 
 
