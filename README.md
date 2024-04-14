@@ -50,13 +50,13 @@ Install project TA-DU 2024
 Dan silahkan pilih folder dengan jika frontend
 
 ```bash
-  mkdir frontend
+  cd frontend
   
 ```
 Dan silahkan pilih folder dengan jika backend
 
 ```bash
-  mkdir backend
+  cd backend
   
 ```
 lalu ketikkan :
