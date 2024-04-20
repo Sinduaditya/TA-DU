@@ -4,6 +4,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./Layouts/RootLayouts";
 import Login from "./Pages/Auth/Login";
 import Signup from "./Pages/Auth/Signup";
+import Blogs from "./Pages/Blog/BlogPage.jsx"
+import AboutPage from "./Pages/About/AboutPage.jsx";
 
 export default function App() {
   const router = createBrowserRouter([
@@ -15,6 +17,14 @@ export default function App() {
           path: "/",
           element: <Home />,
         },
+        {
+          path:"/blogs",
+          element: <Blogs/>
+        },
+        {
+          path:"/about",
+          element: <AboutPage/>
+        }
       ],
     },
     {
@@ -25,6 +35,7 @@ export default function App() {
       path: "/signup",
       element: <Signup />,
     },
+
   ]);
 
   return <RouterProvider router={router} />;
