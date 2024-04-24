@@ -29,7 +29,7 @@ export default function Banners() {
             <img
               src={CharHomePage}
               alt="Gambar"
-              className="w-80 animate-bounce h-auto"
+              className="w-20 animate-bounce h-auto lg:w-80"
             />
           </div>
         </div>
