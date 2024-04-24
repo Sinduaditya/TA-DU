@@ -1,0 +1,53 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+model User {
+  id        Int      @id @default(autoincrement())
+  username  String   @unique
+  email     String   @unique
+  password String
+  createdAt DateTime @default(now())
+  updateUt DateTime @updatedAt
+  blogs     Blog[]
+  comment   Comment[]      // Define the relation field in User model
+
+  @@map("user")  // Optionally specify the database table name
+}
+
+model Blog {
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String
+  author    User     @relation(fields: [authorId], references: [id])  // Define the relation to User model
+  authorId  Int
+
+  @@map("blog")  // Optionally specify the database table name
+}
+
+model Tag {
+  id        Int      @id @default(autoincrement())
+  content   String
+}
+
+model Comment {
+  id        Int      @id @default(autoincrement())
+  username  User   @relation(fields: [name], references: [username])
+  name String 
+  content   String
+  createdAt DateTime @default(now())
+  updateUt DateTime @updatedAt
+
+  @@map("comment")  // Optionally specify the database table name
+}
+
