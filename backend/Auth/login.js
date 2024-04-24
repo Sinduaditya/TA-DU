@@ -14,7 +14,7 @@ const login = async(req,res) => {
             where: {username},
         })
         if(!user){
-            res.status(404).json({message: "User tidak ditemukan"});
+            return res.status(404).json({message: "User tidak ditemukan"});
         }else {
             const passwordMatch = await compare(password, user.password);
             if (passwordMatch){
@@ -23,14 +23,14 @@ const login = async(req,res) => {
                 });
                 const id = user.id;
 
-                res.status(200).json({token, id});
+                return res.status(200).json({token, id});
             }else {
-                res.status(401).json({message: "Password Salah"});
+                return res.status(401).json({message: "Password Salah"});
             }
         }
     } catch (error) {
         console.log("Error compare Password: " + error);
-        res.status(500).json({message : "Login Gagal!"});
+        return res.status(500).json({message : "Login Gagal!"});
     }
 }
 
